@@ -5,7 +5,8 @@
   "scripts": {
     "compile": "node scripts/compile.js",
     "test": "node scripts/compile.js && npx hardhat run test/run.js",
-    "vectors": "node scripts/vectors.js && node scripts/fixtures.js"
+    "vectors": "node scripts/vectors.js && node scripts/fixtures.js",
+    "ots-check": "node scripts/ots-timing-check.js"
   },
   "keywords": [],
   "author": "",
