@@ -32,6 +32,12 @@
 //  - SUPERSESSION: a facet named by another facet's `supersedes` (same issuer) — in the document or as a
 //    later entry in the issuer's declared log — is history, marked `supersededBy`, even inside its window.
 //    A `supersedes` naming a facet of a different issuer is ignored and reported.
+//  - SUPERSESSION TIMING: a superseded facet keeps its own `timing`, and the resolver reports when the
+//    replacement was proven (§8 proven time: the superseding facet's verified `committedAt`, or the anchored
+//    head time `provenAt` of the superseding log entry) relative to the superseded facet's subjectWindow.until:
+//    `supersessionTiming` = before-outcome | not-before-outcome | unknown. A `final` facet that was pre-outcome
+//    and was replaced by a supersession not proven before the outcome is marked `reversedAfterOutcome: true`:
+//    the claim made in time was withdrawn after the outcome, and a reader scoring pre-outcome claims scores it.
 //  - FINALITY: `finality` is reported (absent = "final"); a provisional facet may be current but is never
 //    presented as final.
 const fs = require("fs");
@@ -157,7 +163,9 @@ async function reconstructIntervals(p, reg, anchor, fromBlock) {
 async function verifyCommitment(facet, ctx) {
   const c = facet.committedAt;
   if (!c || !c.anchor) return null;
-  if (ctx.trustedTimestamps && ctx.trustedTimestamps[facet.facetType] != null) return ctx.trustedTimestamps[facet.facetType];
+  const tt = ctx.trustedTimestamps;
+  if (tt && facet.digest && tt[String(facet.digest).toLowerCase()] != null) return tt[String(facet.digest).toLowerCase()];
+  if (tt && tt[facet.facetType] != null) return tt[facet.facetType];
   if (ctx.verifiers && ctx.verifiers[c.anchor]) return ctx.verifiers[c.anchor](facet);
   if (c.anchor === "block" && ctx.provider && c.proof && c.proof.txHash) {
     try {
@@ -205,7 +213,7 @@ function exclusivityOf(facet, subject, ctx) {
   const unlinked = hits.filter((e) => !e.supersedes || !contents.has(lc(e.supersedes)));
   if (unlinked.length > 1) return { exclusivity: "duplicate" };
   const later = hits.find((e) => lc(e.supersedes) === lc(facet.digest));
-  if (later) return { exclusivity: "superseded", supersededBy: later.content };
+  if (later) return { exclusivity: "superseded", supersededBy: later.content, supersededAtProven: Number.isFinite(later.provenAt) ? later.provenAt : null, supersededAnchor: later.anchor || (facet.committedAt && facet.committedAt.anchor) };
   return { exclusivity: hits.length > 1 ? "unique-latest" : "unique" };
 }
 
@@ -230,6 +238,24 @@ const ANCHOR_TOLERANCE = {
   rfc3161: (facet) => { const a = facet.committedAt && facet.committedAt.proof && facet.committedAt.proof.accuracySeconds; return Number.isFinite(a) ? a : 60; },
 };
 function toleranceOf(facet) { const f = ANCHOR_TOLERANCE[facet.committedAt && facet.committedAt.anchor]; return f ? f(facet) : Infinity; }
+
+/**
+ * When the replacement of a superseded facet was proven, relative to that facet's subjectWindow.until.
+ * provenAt: proven time of the superseding facet or log entry (null if it has none); anchor: its anchor kind.
+ */
+function supersessionTimingOf(facet, ownTiming, provenAt, anchor) {
+  const w = facet.subjectWindow;
+  let st;
+  if (provenAt == null || !w || !Number.isFinite(w.until)) st = "unknown";
+  else {
+    const f = ANCHOR_TOLERANCE[anchor]; const tol = f ? f({ committedAt: { anchor } }) : Infinity;
+    st = provenAt + tol < w.until ? "before-outcome" : "not-before-outcome";
+  }
+  const out = { supersessionTiming: st };
+  if (provenAt != null) out.supersededAtProven = provenAt;
+  if ((facet.finality || "final") === "final" && ownTiming === "pre-outcome" && st === "not-before-outcome") out.reversedAfterOutcome = true;
+  return out;
+}
 
 function timingOf(facet, provenAt) {
   if (!facet.committedAt) return { timing: "none" };
@@ -271,11 +297,22 @@ async function resolveSnapshot(snap, now, ctx = {}) {
     if (!f.validUntil || !Number.isFinite(f.validUntil)) { facets.invalid.push({ ...tag, reason: "missing validUntil" }); continue; }
     // supersession visible in the document (same issuer)
     const by = sup.out.get(String(f.digest).toLowerCase());
-    if (by) { facets.history.push({ ...tag, supersededBy: by, reason: "superseded" }); continue; }
+    if (by) {
+      const own = timingOf(f, await verifyCommitment(f, ctx));
+      const repl = listed.find((x) => String(x.digest).toLowerCase() === String(by).toLowerCase());
+      const replAt = repl && repl.committedAt ? await verifyCommitment(repl, ctx) : null;
+      facets.history.push({ ...tag, ...own, supersededBy: by, reason: "superseded", ...supersessionTimingOf(f, own.timing, replAt, repl && repl.committedAt && repl.committedAt.anchor) });
+      continue;
+    }
     // supersession visible only in the issuer's declared log
     if (f.committedAt && f.committedAt.log) {
       const ex = exclusivityOf(f, snap.aid, ctx);
-      if (ex.exclusivity === "superseded") { facets.history.push({ ...tag, ...ex, reason: "superseded in issuer log" }); continue; }
+      if (ex.exclusivity === "superseded") {
+        const own = timingOf(f, await verifyCommitment(f, ctx));
+        const { supersededAtProven, supersededAnchor, ...exRest } = ex;
+        facets.history.push({ ...tag, ...own, ...exRest, reason: "superseded in issuer log", ...supersessionTimingOf(f, own.timing, supersededAtProven, supersededAnchor) });
+        continue;
+      }
     }
     if (f.validFrom && f.validFrom > now) { facets.invalid.push({ ...tag, reason: "not yet valid" }); continue; }
     // on-chain self facet record must agree with the document when present
@@ -337,5 +374,5 @@ async function main() {
   console.log(JSON.stringify(await resolveSnapshot(snap, now, ctx), null, 2));
 }
 
-module.exports = { resolveSnapshot, snapshotFromChain, reconstructIntervals, verifyCommitment, timingOf, toleranceOf, ANCHOR_TOLERANCE, exclusivityOf, supersessionMap, logTag, STATE };
+module.exports = { supersessionTimingOf, resolveSnapshot, snapshotFromChain, reconstructIntervals, verifyCommitment, timingOf, toleranceOf, ANCHOR_TOLERANCE, exclusivityOf, supersessionMap, logTag, STATE };
 if (require.main === module) main().catch((e) => { console.error(e); process.exit(1); });

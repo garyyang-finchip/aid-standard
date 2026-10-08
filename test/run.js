@@ -295,6 +295,26 @@ async function main() {
     const old = r.facets.current.find((f) => f.finality === "provisional"); eq(old.timing, "pre-outcome");
   });
 
+  await t("supersession timing: replacement proven before / after the outcome / unproven; final pre-outcome reversed after the outcome is flagged", async () => {
+    const { resolveSnapshot } = require("../tools/aid-resolve/resolve");
+    const fx = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "assets", "erc-aid", "vectors", "fixtures", "supersession-timing.json")));
+    const r = await resolveSnapshot(fx, 1791200000, { trustedTimestamps: fx.trustedTimestamps, issuerLogs: fx.issuerLogs, logEntries: fx.logEntries });
+    eq(r.facets.current.length, 0); eq(r.facets.history.length, 6);
+    const got = r.facets.history.map((f) => [f.facetType, f.timing, f.finality, f.supersessionTiming, !!f.reversedAfterOutcome]);
+    eq(JSON.stringify(got), JSON.stringify([
+      ["aid:tasks/erc8414/v1", "pre-outcome", "final", "before-outcome", false],
+      ["aid:review/erc8004/v1", "pre-outcome", "final", "not-before-outcome", true],
+      ["aid:behavior/core/v1", "pre-outcome", "final", "unknown", false],
+      ["aid:finance/observed/v1", "pre-outcome", "provisional", "not-before-outcome", false],
+      ["aid:skills/erc8338/v1", "pre-outcome", "final", "not-before-outcome", true],
+      ["aid:core/kya/v1", "integrity-only", "final", "not-before-outcome", false],
+    ]));
+    // document-side supersession reports the same fields (replacement's own committedAt as its proven time)
+    const ch = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "assets", "erc-aid", "vectors", "fixtures", "supersession-chain.json")));
+    const r2 = await resolveSnapshot(ch, 1791200000, { trustedTimestamps: ch.trustedTimestamps, issuerLogs: ch.issuerLogs, logEntries: ch.logEntries });
+    eq(r2.facets.history[0].supersessionTiming, "before-outcome"); eq(r2.facets.history[0].timing, "pre-outcome");
+  });
+
   console.log(`\n${passed} passed, ${failed} failed`);
   if (failed) process.exit(1);
 }
