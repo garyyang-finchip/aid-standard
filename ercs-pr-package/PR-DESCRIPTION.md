@@ -22,7 +22,7 @@ Key elements:
 - `assets/erc-8434/vectors/` — test vectors (facetType keys, JCS digest, EIP-712 Bind digest, `account` subjectKey, interfaceId `0x72750a54`) and resolver fixtures
 - `assets/erc-8434/tools/aid-resolve/` — reference resolver
 
-Source repository with the behavioural test suite (22 cases): https://github.com/garyyang-finchip/aid-standard
+Source repository with the behavioural test suite (33 cases): https://github.com/garyyang-finchip/aid-standard
 
 ## Discussion
 

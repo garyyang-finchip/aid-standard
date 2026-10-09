@@ -295,6 +295,51 @@ async function main() {
     const old = r.facets.current.find((f) => f.finality === "provisional"); eq(old.timing, "pre-outcome");
   });
 
+  await t("supersession timing: replacement proven before / after the outcome / unproven; final pre-outcome reversed after the outcome is flagged", async () => {
+    const { resolveSnapshot } = require("../tools/aid-resolve/resolve");
+    const fx = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "assets", "erc-aid", "vectors", "fixtures", "supersession-timing.json")));
+    const r = await resolveSnapshot(fx, 1791200000, { trustedTimestamps: fx.trustedTimestamps, issuerLogs: fx.issuerLogs, logEntries: fx.logEntries });
+    eq(r.facets.current.length, 0); eq(r.facets.history.length, 6);
+    const got = r.facets.history.map((f) => [f.facetType, f.timing, f.finality, f.supersessionTiming, !!f.reversedAfterOutcome]);
+    eq(JSON.stringify(got), JSON.stringify([
+      ["aid:tasks/erc8414/v1", "pre-outcome", "final", "before-outcome", false],
+      ["aid:review/erc8004/v1", "pre-outcome", "final", "not-before-outcome", true],
+      ["aid:behavior/core/v1", "pre-outcome", "final", "unknown", false],
+      ["aid:finance/observed/v1", "pre-outcome", "provisional", "not-before-outcome", false],
+      ["aid:skills/erc8338/v1", "pre-outcome", "final", "not-before-outcome", true],
+      ["aid:core/kya/v1", "integrity-only", "final", "not-before-outcome", false],
+    ]));
+    // document-side supersession reports the same fields (replacement's own committedAt as its proven time)
+    const ch = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "assets", "erc-aid", "vectors", "fixtures", "supersession-chain.json")));
+    const r2 = await resolveSnapshot(ch, 1791200000, { trustedTimestamps: ch.trustedTimestamps, issuerLogs: ch.issuerLogs, logEntries: ch.logEntries });
+    eq(r2.facets.history[0].supersessionTiming, "before-outcome"); eq(r2.facets.history[0].timing, "pre-outcome");
+  });
+
+  await t("finalization: provisional + finalizeBy -> open before, overdue after with no supersession; superseded in log is history, not overdue", async () => {
+    const { resolveSnapshot, finalizationOf } = require("../tools/aid-resolve/resolve");
+    const fx = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "assets", "erc-aid", "vectors", "fixtures", "finalization.json")));
+    const r = await resolveSnapshot(fx, 1791200000, { trustedTimestamps: fx.trustedTimestamps, issuerLogs: fx.issuerLogs, logEntries: fx.logEntries });
+    const cur = r.facets.current.map((f) => [f.facetType, f.finality, f.finalization || null]);
+    eq(JSON.stringify(cur), JSON.stringify([["aid:tasks/erc8414/v1", "provisional", "open"], ["aid:review/erc8004/v1", "provisional", "overdue"], ["aid:finance/observed/v1", "final", null]]));
+    eq(r.facets.history.length, 1); eq(r.facets.history[0].facetType, "aid:behavior/core/v1"); eq(r.facets.history[0].reason, "superseded in issuer log"); eq(r.facets.history[0].finalization, undefined);
+    // finalizeBy on a final facet is ignored
+    eq(JSON.stringify(finalizationOf({ finality: "final", finalizeBy: 1 }, 1791200000, "unique")), "{}");
+    // the envelope schema rejects finalizeBy unless finality is provisional
+    const Ajv = require("ajv/dist/2020"); const validate = new Ajv({ strict: false }).compile(JSON.parse(fs.readFileSync(path.join(__dirname, "..", "assets", "erc-aid", "schemas", "facet.schema.json"))));
+    const [open, , , fin] = fx.document.facets;
+    eq(validate(open), true); eq(validate({ ...fin, finalizeBy: 1791500000 }), false); eq(validate({ ...open, finality: undefined }), false);
+  });
+
+  await t("alsoKnownAs: mutual link confirmed; one-sided link unconfirmed; unavailable Document unchecked", async () => {
+    const { resolveSnapshot } = require("../tools/aid-resolve/resolve");
+    const fx = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "assets", "erc-aid", "vectors", "fixtures", "also-known-as.json")));
+    const r = await resolveSnapshot(fx, 1791200000, { linkedDocuments: fx.linkedDocuments });
+    eq(JSON.stringify(r.alsoKnownAs.map((l) => l.status)), JSON.stringify(["confirmed", "unconfirmed", "unchecked"]));
+    // a fetch hook may supply the missing Document; case of the address part does not matter
+    const r2 = await resolveSnapshot(fx, 1791200000, { linkedDocuments: fx.linkedDocuments, fetchLinkedDocument: async (aid) => ({ version: "aid-document/v1", aid: aid.toLowerCase(), alsoKnownAs: [fx.aid.toUpperCase().replace("EIP155", "eip155")], facets: [] }) });
+    eq(r2.alsoKnownAs[2].status, "confirmed");
+  });
+
   console.log(`\n${passed} passed, ${failed} failed`);
   if (failed) process.exit(1);
 }
