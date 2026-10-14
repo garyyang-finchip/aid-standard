@@ -1,0 +1,64 @@
+{
+  "about": "Public on-chain facts of one optimistic-oracle market that went proposed -> disputed -> disputed -> DVM vote -> re-proposed -> resolved. Every entry is a transaction receipt log (or a view call) on Polygon (137) or Ethereum (1); node scripts/oracle-dispute-check.js re-reads each one from a public RPC. Only these facts are real; the issuer, its log and its commitment times in oracle-dispute-*.json are fixture values.",
+  "market": {
+    "questionId": "0x30ebd10971cc044380ce6495e791828e9e0291fbb48550ca8be42149e1982791",
+    "questionIdIs": "keccak256(ancillaryData) of QuestionInitialized",
+    "conditionId": "0x4ba348328e4d4ddee9e6734c9a369b2e8138611651f9f6dc8f59dea51df6c734",
+    "conditionIdIs": "keccak256(abi.encodePacked(adapter, questionId, uint256(2)))",
+    "title": "Iran closes its airspace by May 24?",
+    "deadline": { "text": "by the listed date, 11:59 PM ET (ancillaryData)", "unix": 1779681540, "iso": "2026-05-25T03:59:00Z" },
+    "resData": "p1: 0 = No, p2: 1 = Yes, p3: 0.5",
+    "adapter": "0x65070BE91477460D8A7AeEb94ef92fe056C2f2A7",
+    "oracle": "0x2C0367a9DB231dDeBd88a94b4f6461a6e47C58B1",
+    "ctf": "0x4D97DCd97eC945f40cF65F87097ACe5EA0476045",
+    "childOracle": "0xac60353a54873c446101216829a6A98cDbbC3f3D",
+    "voting": "0x004395edb43EFca9885CEdad51EC9fAf93Bd34ac",
+    "identifier": "0x5945535f4f525f4e4f5f51554552590000000000000000000000000000000000",
+    "dvmAncillaryDataHash": "0x57489c36a63b38d60c6761c77722ee09a75245b89fec1996a6d62b0e87fb0a76",
+    "dvmAncillaryDataHashIs": "keccak256(ancillaryData ++ \",ooRequester:65070be91477460d8a7aeeb94ef92fe056c2f2a7\")",
+    "ignorePrice": "-57896044618658097711785492504343953926634992332820282019728792003956564819968"
+  },
+  "views": [
+    { "step": "vote-round-end", "chainId": 1, "contract": "0x004395edb43EFca9885CEdad51EC9fAf93Bd34ac", "call": "function getRoundEndTime(uint256) view returns (uint256)", "args": [10299], "result": "1779840000" }
+  ],
+  "events": [
+    { "step": "initialize", "chainId": 137, "tx": "0x323e036a14c086dec3386b05386f7e54fb65bdb266736e499dff1ea1478b4bfc", "block": 86776389, "time": 1778598389,
+      "logs": [
+        { "contract": "0x65070BE91477460D8A7AeEb94ef92fe056C2f2A7", "event": "QuestionInitialized", "args": { "questionID": "0x30ebd10971cc044380ce6495e791828e9e0291fbb48550ca8be42149e1982791", "requestTimestamp": "1778598389" } },
+        { "contract": "0x2C0367a9DB231dDeBd88a94b4f6461a6e47C58B1", "event": "RequestPrice", "args": { "requester": "0x65070BE91477460D8A7AeEb94ef92fe056C2f2A7", "timestamp": "1778598389" } } ] },
+    { "step": "propose-1", "chainId": 137, "tx": "0x2998c70f91fd91cb007d8baaf211b62d1c1aee0ff258e52d335e164b32b61dce", "block": 87283650, "time": 1779486096,
+      "logs": [ { "contract": "0x2C0367a9DB231dDeBd88a94b4f6461a6e47C58B1", "event": "ProposePrice", "args": { "requester": "0x65070BE91477460D8A7AeEb94ef92fe056C2f2A7", "timestamp": "1778598389", "proposedPrice": "1000000000000000000", "expirationTimestamp": "1779493296" } } ] },
+    { "step": "dispute-1", "chainId": 137, "tx": "0x537d7b36bbed683307f3df95766b90777c9377c77b2c61d517eae7bb3c220752", "block": 87287259, "time": 1779492412,
+      "logs": [
+        { "contract": "0x2C0367a9DB231dDeBd88a94b4f6461a6e47C58B1", "event": "DisputePrice", "args": { "requester": "0x65070BE91477460D8A7AeEb94ef92fe056C2f2A7", "timestamp": "1778598389", "proposedPrice": "1000000000000000000" } },
+        { "contract": "0x65070BE91477460D8A7AeEb94ef92fe056C2f2A7", "event": "QuestionReset", "args": { "questionID": "0x30ebd10971cc044380ce6495e791828e9e0291fbb48550ca8be42149e1982791" } },
+        { "contract": "0x2C0367a9DB231dDeBd88a94b4f6461a6e47C58B1", "event": "RequestPrice", "args": { "requester": "0x65070BE91477460D8A7AeEb94ef92fe056C2f2A7", "timestamp": "1779492412" } } ] },
+    { "step": "propose-2", "chainId": 137, "tx": "0xc05dae307320697ce7ae207100779c681afb5012fd2247804605d14223bab811", "block": 87287285, "time": 1779492457,
+      "logs": [ { "contract": "0x2C0367a9DB231dDeBd88a94b4f6461a6e47C58B1", "event": "ProposePrice", "args": { "requester": "0x65070BE91477460D8A7AeEb94ef92fe056C2f2A7", "timestamp": "1779492412", "proposedPrice": "1000000000000000000", "expirationTimestamp": "1779499657" } } ] },
+    { "step": "dispute-2", "chainId": 137, "tx": "0x8281a9d546c4f71b676b34e1657e6b58830a8447b68fef0e769f9e3bf331897a", "block": 87287618, "time": 1779493040,
+      "logs": [ { "contract": "0x2C0367a9DB231dDeBd88a94b4f6461a6e47C58B1", "event": "DisputePrice", "args": { "requester": "0x65070BE91477460D8A7AeEb94ef92fe056C2f2A7", "timestamp": "1779492412", "proposedPrice": "1000000000000000000" } } ] },
+    { "step": "vote-request-1", "chainId": 1, "tx": "0x2729ed0acdd2b2a13f9ec73d31ef7214f98342aec3358bd69f2353e8f2b4a138", "block": 25154296, "time": 1779495035,
+      "note": "every OOV2 dispute raises a DVM request; the adapter does not wait on the one from the first dispute (it resets the question instead)",
+      "logs": [ { "contract": "0x004395edb43EFca9885CEdad51EC9fAf93Bd34ac", "event": "RequestAdded", "args": { "roundId": "10299", "time": "1779486096" }, "ancillaryDataIncludes": "ancillaryDataHash:57489c36a63b38d60c6761c77722ee09a75245b89fec1996a6d62b0e87fb0a76" } ] },
+    { "step": "vote-request-2", "chainId": 1, "tx": "0xc5d7f78ca5fa1c0584b46c815897539232d72d201d20e86c88b83c3c4134ba19", "block": 25154321, "time": 1779495335,
+      "logs": [ { "contract": "0x004395edb43EFca9885CEdad51EC9fAf93Bd34ac", "event": "RequestAdded", "args": { "roundId": "10299", "time": "1779492457" }, "ancillaryDataIncludes": "ancillaryDataHash:57489c36a63b38d60c6761c77722ee09a75245b89fec1996a6d62b0e87fb0a76" } ] },
+    { "step": "vote-resolved", "chainId": 1, "tx": "0x7c155ad143653a16331dc05a93f1bfa565aedd2b46bcdb672fe59a0dd988921c", "block": 25182944, "time": 1779840023,
+      "note": "both requests resolve to the ignore price (int256 min, 'too early'): the proposals were made before the question's deadline",
+      "logs": [
+        { "contract": "0x004395edb43EFca9885CEdad51EC9fAf93Bd34ac", "event": "RequestResolved", "args": { "roundId": "10299", "time": "1779486096", "price": "-57896044618658097711785492504343953926634992332820282019728792003956564819968" } },
+        { "contract": "0x004395edb43EFca9885CEdad51EC9fAf93Bd34ac", "event": "RequestResolved", "args": { "roundId": "10299", "time": "1779492457", "price": "-57896044618658097711785492504343953926634992332820282019728792003956564819968" }, "ancillaryDataIncludes": "ancillaryDataHash:57489c36a63b38d60c6761c77722ee09a75245b89fec1996a6d62b0e87fb0a76" } ] },
+    { "step": "price-pushed", "chainId": 137, "tx": "0x2833528c33dc52a8bd747425c3baf62201d773c468097bed15951095c5ea9b74", "block": 87486784, "time": 1779841593,
+      "note": "Polygon state-sync transaction delivering the vote result to the child oracle",
+      "logs": [ { "contract": "0xac60353a54873c446101216829a6A98cDbbC3f3D", "event": "PushedPrice", "args": { "time": "1779492457", "price": "-57896044618658097711785492504343953926634992332820282019728792003956564819968" }, "ancillaryDataIncludes": "ancillaryDataHash:57489c36a63b38d60c6761c77722ee09a75245b89fec1996a6d62b0e87fb0a76" } ] },
+    { "step": "reset-and-propose-3", "chainId": 137, "tx": "0x32afb20698b3fe7b9cfc29631763dab0b9ebc2f0b8a4a9bc765fb692c981fc28", "block": 87486835, "time": 1779841683,
+      "note": "adapter.resolve(questionId) reads the ignore price and resets the question; a new proposal (No) is made in the same transaction",
+      "logs": [
+        { "contract": "0x2C0367a9DB231dDeBd88a94b4f6461a6e47C58B1", "event": "RequestPrice", "args": { "requester": "0x65070BE91477460D8A7AeEb94ef92fe056C2f2A7", "timestamp": "1779841683" } },
+        { "contract": "0x65070BE91477460D8A7AeEb94ef92fe056C2f2A7", "event": "QuestionReset", "args": { "questionID": "0x30ebd10971cc044380ce6495e791828e9e0291fbb48550ca8be42149e1982791" } },
+        { "contract": "0x2C0367a9DB231dDeBd88a94b4f6461a6e47C58B1", "event": "ProposePrice", "args": { "requester": "0x65070BE91477460D8A7AeEb94ef92fe056C2f2A7", "timestamp": "1779841683", "proposedPrice": "0", "expirationTimestamp": "1779848883" } } ] },
+    { "step": "resolved", "chainId": 137, "tx": "0x3410d510201765494e027de3401c942051a50aed0c56a23292a0e598f45c152a", "block": 87493046, "time": 1779852552,
+      "logs": [
+        { "contract": "0x4D97DCd97eC945f40cF65F87097ACe5EA0476045", "event": "ConditionResolution", "args": { "conditionId": "0x4ba348328e4d4ddee9e6734c9a369b2e8138611651f9f6dc8f59dea51df6c734", "questionId": "0x30ebd10971cc044380ce6495e791828e9e0291fbb48550ca8be42149e1982791", "payoutNumerators": ["0", "1"] } },
+        { "contract": "0x65070BE91477460D8A7AeEb94ef92fe056C2f2A7", "event": "QuestionResolved", "args": { "questionID": "0x30ebd10971cc044380ce6495e791828e9e0291fbb48550ca8be42149e1982791", "settledPrice": "0", "payouts": ["0", "1"] } } ] }
+  ]
+}

@@ -6,7 +6,8 @@
     "compile": "node scripts/compile.js",
     "test": "node scripts/compile.js && npx hardhat run test/run.js",
     "vectors": "node scripts/vectors.js && node scripts/fixtures.js",
-    "ots-check": "node scripts/ots-timing-check.js"
+    "ots-check": "node scripts/ots-timing-check.js",
+    "oracle-dispute-check": "node scripts/oracle-dispute-check.js"
   },
   "keywords": [],
   "author": "",

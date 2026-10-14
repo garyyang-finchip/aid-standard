@@ -21,14 +21,16 @@ assets/erc-aid/
   schemas/                            aid-document, facet envelope, facets/*-v1 content schemas
   vectors/aid-vectors.json            facetType keys, JCS digest, EIP-712 Bind digest, 8419 subjectKey, interfaceId
   vectors/aid-document.sample.json    sample AID Document
-  vectors/fixtures/                   resolver fixtures (states, digest, interval gap, timing, log exclusivity, supersession, supersession timing, finalization, alsoKnownAs)
+  vectors/fixtures/                   resolver fixtures (states, digest, interval gap, timing, log exclusivity, supersession, supersession timing, finalization, alsoKnownAs, oracle dispute from a real market)
 tools/jcs.js                          RFC 8785 canonicalisation used for document digests
 tools/aid-resolve/resolve.js          reference resolver (RPC or fixture mode)
 scripts/compile.js                    solc-js compile → build/*.json
 scripts/vectors.js · fixtures.js      regenerate vectors and fixtures
-test/run.js                           behavioural tests on a local Hardhat chain (33 cases)
+test/run.js                           behavioural tests on a local Hardhat chain (34 cases)
 docs/magicians-replies-*.md           posted replies + decisions per review round
 tools/aid-resolve/verifiers/ots.js    optional OpenTimestamps verifier plug-in (contributed; not part of the ERC assets)
+scripts/fixtures-oracle-dispute.js    regenerates the oracle-dispute fixtures from vectors/fixtures/oracle-dispute-facts.json
+scripts/oracle-dispute-check.js       re-reads every chain fact of the oracle-dispute fixture from public RPCs (network)
 ```
 
 ## Build & test
