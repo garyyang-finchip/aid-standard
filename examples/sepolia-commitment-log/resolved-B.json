@@ -1,0 +1,381 @@
+{
+  "snapshot": {
+    "aid": "eip155:11155111:0xd6b24DF77E6f5e7BEFf51460a1d60C2fb7ac9eb2",
+    "state": 1,
+    "binding": {
+      "registry": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+      "agentId": 11039,
+      "boundAt": 1792084476
+    },
+    "lastSeen": 1792364640,
+    "livenessWindow": 7776000,
+    "successor": null,
+    "documentDigest": "0x03b454c03f324f9f3751c08abd841e5d3bf835fa63af571e862f840094df1019",
+    "document": {
+      "aid": "eip155:11155111:0xd6b24DF77E6f5e7BEFf51460a1d60C2fb7ac9eb2",
+      "binding": {
+        "agentId": 11039,
+        "registry": "0x8004A818BFB912233c491871b3d84c89A494BD9e"
+      },
+      "did": "did:aid:eip155:11155111:0xd6b24DF77E6f5e7BEFf51460a1d60C2fb7ac9eb2",
+      "facets": [
+        {
+          "access": {
+            "mode": "PUBLIC"
+          },
+          "digest": "0x1664b7e01137a0a2d9a47014cba5c546c27dd1fbe19af3b59cd492d5cb01a7d1",
+          "facetType": "aid:core/identity/v1",
+          "issuer": "eip155:11155111:0xd6b24DF77E6f5e7BEFf51460a1d60C2fb7ac9eb2",
+          "observedAt": 1792084476,
+          "provenance": "SELF",
+          "resolver": {
+            "agentId": 11039,
+            "chainId": 11155111,
+            "kind": "erc8004-identity",
+            "registry": "0x8004A818BFB912233c491871b3d84c89A494BD9e"
+          },
+          "validFrom": 1792084476,
+          "validUntil": 1823620476
+        },
+        {
+          "access": {
+            "mode": "PUBLIC"
+          },
+          "committedAt": {
+            "anchor": "ots",
+            "log": {
+              "position": 1,
+              "uri": "https://raw.githubusercontent.com/babyblueviper1/preaction-governance-conformance/main/examples/aid-commitment-log/log.json"
+            },
+            "proof": {
+              "blockHash": "00000000000000000001c269ca41f1dc46b4e8fe4193d95208f989137e6da48c",
+              "blockHeader": "00e017211ee6ed9c89e45def67d97a1005c3580b8200ef45b8f400000000000000000000df5c77fc6e9c764fa6872290fa5a986840c12f0a7190a48ad80165406d0158ce4e16d46a93000217a34d1997",
+              "ots": "AE9wZW5UaW1lc3RhbXBzAABQcm9vZgC/ieLohOiSlAEIcbPNq7RZBNOY7Bn+7wjfBfz6Qxk18tq2gmJc2yDEV9L/8BBAkJrANnM/OPVohgKkgzF+CPEgqIqfPVr6+70w0vUeTZB+lnh/7ScDU2ro87J+NmlhTeYI8QRq1BFQ8AhbbeOQo+CG3QCD3+MNLvkMjiMiaHR0cHM6Ly9idGMuY2FsZW5kYXIuY2F0YWxsYXh5LmNvbf/wCHULU0H6n1IvCPAQzY4kDeDwFrRpjzno0YIi7QjwIJgV0qudKIrMT6KMYXjTi6jvxLlD7dVW9gY2I8HtK8a+CPAgUG1CPt3u60aSbGzeITGg0AAqP/u/moRYHXp1cDguyc4I8CD4CtALzn+2dsUaPP3pAhm2odExNzW9OoLqLhCWyoE3UgjxBGrUEU7wCLuLGqW8Bmq2/wCD3+MNLvkMjiwraHR0cHM6Ly9ib2IuYnRjLmNhbGVuZGFyLm9wZW50aW1lc3RhbXBzLm9yZwjxIPm+CYyrr11Z1ciPT3zBSzpDjkcWdbbSiAhOmTc3BiE0CPEgMcbFru2Ax20z9/j7yx+Uq9YnPPFhuPm/7bQ6uDiS2zgI8SAHlb/BRYGYcTwR7AAq0aiZtyvySJcX49ZS8XYG3SIYDgjxIFEeTOaSl9ExUbaKSHwRoN2NM9AwNmd0IyrXOWeA2iQmCPEg4ciz692i520Ki56Zd9GUa2Lce8cuAJcZ8UmcTAtfOGUI8CDnmqudZxImP9rBr49Fiqu9fkkKgV4ewIgKm30iI+5kFQjwINp/A+c8JYIEDadytRbg+4VzbiXw9lVwe0yITWGMC99HCPEgA+sNjQ3fotQG6Z+neIIEhgZCBD6zIMRw2OwNpudshrQI8CDS39CuchQ0l7GhPkIdbZIQcxEEpB9ag4GodquDLGRW6wjwIBbXjo4l/VtaYMp2VVHcniej5LCvyG5tjG+5ndo9Kd1pCPFZAQAAAAGelgdxRHCNhiGzgWJcq93VVRni3d0+7fvJIdoXpIdkjwAAAAAA/v///wIXSAEAAAAAABYAFCYfBefWwipOJdIp7uxH180TYUDLAAAAAAAAAAAiaiDwBJTUDgAICPAgIgrYXkEtV65alfhUe3yudtBoOL3z8IiZWevBdZbvnf8ICPEgJDAaIE69spxk5Np+gQq8a7yGbwCHuon+YmuMQ02vklQICPAgEH8kQVg+l/nKTRZBt1a8kMFZp12sAS+Fxvu5AjNugYoICPAg4OfkZaMebG+li/AMydhLv8ZFadDNeETgtizLKnmPxj8ICPEgafocM1YK8wE8w5QPV+M25LS4yCKJnuTmHQEMINp6z3EICPAg3bqyUoVYs7MnAfZIeOpQEtn6L8PaCOij3vtTPaexeQUICPEgm6IC6JKNhuAjjl/vi9zn2mLS+4EDrjjP2Rtumdjz4LAICPAgXFlw8p31HZ9pZtTJtim2AKto/iZj9nmeg0z3tKM3slsICPEgBE/Z0kinL+7zjSu+ZxCJfo9ROjRUwDo5yvLTcNcjAIoICPEg6QKjnVrvkhnxBFohqQXK9y+ou44/w+/uxNbUApsi/NwICPEgryJYIhm/OTqfu5qlO3hmxgGWu5nRqbAS0nFeTEltV/4ICPAge3PGgzJepZdnSC7Sj20BtcRcL1bcnaAjAfjz5/U0BpAICPAgJ1s9+DYdovgJSKirkcGBBSbgs2i9FPtFzB6RRMt3NbsICAAFiJYNc9cZAQOVqTv/8AiITMFninnBGQjwIEbeecZvGbwx4A0P2HjEfEoCBeHRkqpva3EJul3D4/JmCPAQU/qe3M77Jky8qoRQMAIZZgjxIGpvnAjulEspRvCH5Tff6i2ewDkDcK4wAe5kQelbZia0CPEEatQRTfAI2KJ80VpGHID/AIPf4w0u+QyOLi1odHRwczovL2FsaWNlLmJ0Yy5jYWxlbmRhci5vcGVudGltZXN0YW1wcy5vcmcI8CBhKQNa0KS7O0DaD2z+ef73G1Aqduy+wa3rjoRUnCb3ngjxIJx0+WmEhImDU5bejuUyF6n10slK9EeJrxfIysNQxVwBCPEg+7F+J2Em/L46emXsT2TZRii+tSxjSvC1mxzvRxbG6WoI8SBrDvENjXNdY28blN+6fnJ4m3sX0Py+gpZjtdwf7IHIiwjxIB9wz+Z6kQvuuW3F65mLGqspt31bn2Do3eV5tJWe9u/ECPEg0qLZ/S7tmZgPDfCAlbOi+DgL60wdNzsCPZrWwRY69NQI8CDxG8R6TK2apmmWmMnggnI0m+0VVxKoUEhgW0tRm5GgKwjwIFvXF4YL1crkoEspcLHAxPKh6cFdtPx66Vi42cKXw4r/CPFZAQAAAAEUCLJ24rac+0IbAT5D7j2zWPxCMSI8vrJr3/QbJFcVJgAAAAAA/v///wI6EgIAAAAAABYAFLe+FEAY1QF3Yx1mP4ka1u2JkT8dAAAAAAAAAAAiaiDwBJPUDgAICPEg53xAomvatnesnyz1lFlJpOKTjt/3lCTyGma5N96OjeAICPAgPXpVtYhfpE4Sk9iInrlFLY98z7qEnoeCkuRwNG5c56wICPAgZOaztkrtOptHBsDtsHtQNHEPx+fTonHiuUJGQMNYc4sICPEgjyZK8kOMy2iwDcLzT/UjzAgLuIqm+H06UPjEecj78/sICPAgJV8kbAikF9WWJPhmGJvarzy9pIW2g3BfszJZZCKElcsICPAgYcnn3OM4ZRKtY1iOKzPj6+1A3Ep7E33MUrkPKAaTc90ICPAgeLklvhrl/e0XK8DrZz3rpSFvRMtVAbv6zTnKmrZPj7IICPEgqbca7OW694i2wDRSUo47F7hoZeR2EmcotOTvDXYhQQ4ICPEgCqXaEh9FumNe7HToqW5n6gWbwMu1EzbTGmRf1DjWlQcICPAgwvQ8xPalZ3kjiI8Mpee6zHxllLwbnEPAUculiJkANoQICPEgg8GchepE2T7WC9iEfzBM6Gp/3VVwh7EetioVIjPmPOUICPEgvBZxJn/1kmjjBm0WZYwNs14kPeTQG+wmtyMaQ8eZlOcICAAFiJYNc9cZAQOUqTvwEMhZzr22oAs7xkzwpEveoK0I8SBSA55xNAbg9YBLhzKf7JOFb1etx15rStd8bhD6ScBRLAjwILYEYNLWpr6TMt3srYzWkG+tfMeM+EuukV8O90v6w6cMCPEgWMeiXfFfooIvHPo8XnUOcmeL1mXuj+OhgIgCc5idA7UI8QRq1BFP8AhdtH6mViC7YgCD3+MNLvkMjikoaHR0cHM6Ly9maW5uZXkuY2FsZW5kYXIuZXRlcm5pdHl3YWxsLmNvbQ=="
+            }
+          },
+          "digest": "0x71b3cdabb45904d398ec19feef08df05fcfa431935f2dab682625cdb20c457d2",
+          "digestAlg": "sha256",
+          "facetType": "aid:behavior/verification-verdict/v1",
+          "finality": "final",
+          "issuer": "eip155:11155111:0x4AA351E5f00eBe168E5C6f823f2940553d164991",
+          "observedAt": 1792282956,
+          "provenance": "ATTESTED",
+          "resolver": {
+            "kind": "uri"
+          },
+          "subjectWindow": {
+            "from": 1792196556,
+            "until": 1792311756
+          },
+          "uri": "https://raw.githubusercontent.com/babyblueviper1/preaction-governance-conformance/main/examples/aid-commitment-log/facet-1.json",
+          "validUntil": 1794874956
+        },
+        {
+          "access": {
+            "mode": "PUBLIC"
+          },
+          "committedAt": {
+            "anchor": "ots",
+            "log": {
+              "position": 2,
+              "uri": "https://raw.githubusercontent.com/babyblueviper1/preaction-governance-conformance/main/examples/aid-commitment-log/log.json"
+            },
+            "proof": {
+              "blockHash": "000000000000000000005252486ea5b0d78a245f83ffa0151359c1b72714c205",
+              "blockHeader": "000000200c6d4fafa26803b1a8f8755a7e6309d628608a825a25000000000000000000005ef3fe84ca3d8bcccdecaa6461cb140b6a473e46279fca152c37c42ff29ea152d895d46a93000217ec6053e1",
+              "ots": "AE9wZW5UaW1lc3RhbXBzAABQcm9vZgC/ieLohOiSlAEIvRApSQHxi7Nfn6IvLM+tkksF7n0grgQGmmIJFDSfI5z/8BASb6N/7EnJhyF6rK+zIGAoCPAgT4loy8TVjrxogsd6TrERJv5X62GeG+dbaoftKea4mMII8CB6GJlQLvJjAZqUJtdvrq/XkaIcOec0vBY2sC9lXnxBRAjwICqYHMDf7P3T/QAYMjzDavN3DaUd1K+PY+h5gDIKGRtCCPAgEGRBnYOuoKExcPh5c1vWuDpLXuuOQwzRgLHrHmv/0WsI8QRq1I098AhbjVMbF94E0wCD3+MNLvkMjikoaHR0cHM6Ly9maW5uZXkuY2FsZW5kYXIuZXRlcm5pdHl3YWxsLmNvbf/wCDx5hhHVtme8CPAQ3MmEClzjZMWsuMy7oQ/8JwjxIGBPk7x5/p4tMIFO9m31V7cSwHKBGcGxCaME4chc2xyOCPEgqmMbmFL3yPwFvEC+WrJcC4QHgZHGea9wx3pAmb7PlLAI8QRq1I078AjUZkZXdz9vOv8Ag9/jDS75DI4sK2h0dHBzOi8vYm9iLmJ0Yy5jYWxlbmRhci5vcGVudGltZXN0YW1wcy5vcmcI8SBHYV7rBhEGzlexhY4AC4DM8TWtQTyO6eKQGFAj0gXGIAjwIEiOBIqomK33DxEq1z7OCEEBqY+e4wBW+LSPBvMj70JPCPAgrzkVZN/fuuiHbU4mrYzCG4NA9eWUjnSA461VGHKLUhII8CAQu9rQRTfWE76HjI2Axt7zpHrNpyiyZy9CBDiG+oHscgjwIL7WipaxA1ud9pq+xYaxO/6/6br8SxL0OtMUl9kmPSurCPEgwMsNyo5FsBb8U2O0hdeABlkv78ONnJT2CHxI93Zf9XYI8CCIGWpOTDKNWDYoNJbx4m0NSpgmSbcY75c360/sdpgiNAjwIP77piocg+XJS49FnF5w9Fz4+pwrsuK6SuSO/Xee4NDPCPEgyI5A+PPWN+9d9copfVoUEKk+6Yi7GVBwKDHEcgkGW8EI8CDIEA6x7M5mgu1RPJcRApevsR9vAIGMkFMaCg9d1oPAvAjwIP85T+S+PdGI9C7Ux1GFCfRrIO0/Lza6QQ2qcF499jT9CPFZAQAAAAHaroFVkkeFUQNkAA6viSyWrDvrUzkP8MUe0sxD8FrYWAAAAAAA/v///wLARAEAAAAAABYAFDsUr52yktHnG2RvLPr1xDg2MkYMAAAAAAAAAAAiaiDwBMHUDgAICPAgvzApYyMR1oXQz9yampF4cKFJueKRzoqvwfbBxZy7mcsICPAgqd1ux6W5DeHV9ocJxvJ4ZiJ9KvDodimO655QQ2jYvzgICPEgtnqqqa5G7SX/iCrbO+5DNhN+KZP5aNpIkKO+M8rHwqYICPEgaynxJawDr/Opj6rH7kwYFHU0ku1noLYK2sM0nrNPXYsICPEgO2Tc1T7bfG3157IOyaEtsMPF+X8T2ujOyJ2PNxQsjLgICPEgXapyHzLkE9GznYN67WIxfpiT6w084zskOLhRVZt1Gi4ICPAgqdpwos2zoCRRicexTF6HDJ6P6oGBtdYf2fazVsMsgeMICPEgWwSDR42DSPYnTBbF+OUJ6QSUgjnue7OaKB8Q94h28xwICPEg/gX8p/IyK1vDG5gcs0Q0dZvGs9GOMbXm8zibTHoYifUICPAgn1SaBEMdMuHAo9uGqccGoRzd5OMDY6Rym1FdHJJHoIAICPAgkvG2ruWpSjYTW6qlU3D2I8kQQbqIy2opjMYgpS4wn2IICPAggmUQpLpBwhYPweg9EzAJysBQPfVG2b3FZhYcUIkvoq8ICPAga2+pfISL5yjMhiAHEHPpL+yKQ+KNrYDeWDCVay+CHnsICAAFiJYNc9cZAQPCqTv/8AiZod3QBo7t1AjxID3RSPRGG6lnIszEb8U2eu37/qyqz0Nm2SGbzqOgDSumCPAQA3NK9C8HMc25S7bMLIviZgjxILlduDdPT9rlMNYlwUrs4nOhV+jDhaBkzTNM6mha7ue8CPAg7CI4WZMl+KwdBFFmzKR1b3Ch3aTENnG0Ip4DxtrxSw8I8SCrocNhdVTFBoD1TsUGAwkanpUSmPCKEYZaYhZkOhHHrQjwIKrn1uKuJ6n4EyYDUZ2EFmvZfJ7r1Xp0FsyOEHwBMw29CPEEatSNO/AIQDu5CfYFAgP/AIPf4w0u+QyOLi1odHRwczovL2FsaWNlLmJ0Yy5jYWxlbmRhci5vcGVudGltZXN0YW1wcy5vcmcI8CAb92LbHauW+XD7n/XZUBFuKwqP87qjNt6g4fjJQbLQKAjxIOQ9gphd0t9epsnITIeulQa/V+sD+i5iEcraimFHqTb2CPAgVn/9MqWvAmcw4EyAhZ9d/b9qFZdmehe10taFBVYceLkI8SClsuKq09SNp4xGuusdih0smoxNTqb7Otbu3YHW9XbkWQjwIG1I6myJdWbh0VQzT31uOlVY/hWYvoOGWBiPkEz4xUdcCPEgxqj4eZSxdqu+g8DgLlfWNBtCBte1pLPjTDzfc2rVoKoI8CC/Bvf3Hw4uYOuDITrzKr2hSuHpMfnk2G1qtfhpjnclCQjxIEb4gELhiZkrF+6YujjpNzmmoxWicmIpTtcm4WIJl9W/CPAgXVIE9uYld+dMkyXb6fnDGfE+vqLhzbbdQwnKkSoL/d8I8CBP0WdAbrY3lTi68lZqyYJNBXZeuJL/wtkz/XoTGbXdPAjxWQEAAAABQWChgxZPcMKZMUUtXmt2hqRF6h4XHk5ZHKU2nCQz/30AAAAAAP7///8C8gkCAAAAAAAWABTM/HrpwWQNTcrVBiL+A+9IF/q1WQAAAAAAAAAAImog8AS+1A4ACAjxINyvyT28nXISR/Uv2lFIVBXEjtKwZJ2ey+SGL2AY0E4eCAjwID0O/P6BIjkZgeNIYKohyQF9YkDs2Ula3hAFnG5kANZ8CAjwIB6v5GJEHGzyMZAG39Ll0jiJElKOWnN9rbRzoF3hy0crCAjxIMxkgrcL2UPSTruSZVarAHXFnfTvhQnMyVyFjSNnfi8ECAjxINPNNUJtvzT8+BLLqXR0hCJYZo87PterdUj0DZHvZ1HBCAjxIB9Djpb9LGWX9R7UlIU0PLm0Yu0ckRQnx9sqyjxcnz+BCAjxIND7R3tANOxnP1THflkmIZg43xLNqj/lNtzic79ITYXMCAjxIHN4shbjtg7IxiZXn5ZxAwezOsn+8CDID2fsrK4cfflbCAjxIO5Tai8+A7pMrB5ZADaiIcjHDqSGub63kyvYfRRvZ7RkCAjwIIQTnj1N1M2ZV7kkOooYb7sZf6kRFes9FmCrEUP6+G7TCAjwIJEIhN3g+Z+DJYR47JxXY59CgjvH9OYCjVCl0dZ2dF9eCAjxIN+BAVoe5Lvd0PT5gtZyiI3KIArDXo4/DxWWLNzf+9U4CAjwIIbRQjXY5ZFbr3l0aGyra9HkvqYNn3wvLGMq9Q75EFuBCAgABYiWDXPXGQEDv6k78BC93kJb/xkL3t4HSoXDnfgYCPEgnTVnySFi0YOIEwcQtkffZraZYNDCK9Ye/Hen9TRqTZQI8CD8lIFM6l91XIcJE3ipixGg/pi5OU0XAxBjYpwYMdvKPgjwILmlAWebj0ZyQwjAyOskvKUGYSdRF7Eu7gIV+ZLWHmg6CPEEatSNPvAIHPuG4f5UXDYAg9/jDS75DI4jImh0dHBzOi8vYnRjLmNhbGVuZGFyLmNhdGFsbGF4eS5jb20="
+            }
+          },
+          "digest": "0xbd10294901f18bb35f9fa22f2ccfad924b05ee7d20ae04069a620914349f239c",
+          "digestAlg": "sha256",
+          "facetType": "aid:behavior/verification-verdict/v1",
+          "finality": "final",
+          "issuer": "eip155:11155111:0x4AA351E5f00eBe168E5C6f823f2940553d164991",
+          "observedAt": 1792314682,
+          "provenance": "ATTESTED",
+          "resolver": {
+            "kind": "uri"
+          },
+          "subjectWindow": {
+            "from": 1792196556,
+            "until": 1792311756
+          },
+          "supersedes": "0x71b3cdabb45904d398ec19feef08df05fcfa431935f2dab682625cdb20c457d2",
+          "uri": "https://raw.githubusercontent.com/babyblueviper1/preaction-governance-conformance/main/examples/aid-commitment-log/facet-2.json",
+          "validUntil": 1794874956
+        }
+      ],
+      "livenessWindow": 7776000,
+      "updatedAt": 1792400000,
+      "version": "aid-document/v1"
+    },
+    "onChainFacets": {},
+    "registrationFile": {
+      "active": true,
+      "description": "Demo agent for the ERC-8434 (AID) reference deployment on Sepolia. Anchored by its owner/agentWallet address through AIDRegistry.",
+      "image": "",
+      "name": "erc-8434-worked-example",
+      "type": "https://eips.ethereum.org/EIPS/eip-8004#registration-v1"
+    },
+    "authorityIntervals": [
+      {
+        "from": 1792084476,
+        "until": null,
+        "registry": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+        "agentId": 11039
+      }
+    ],
+    "issuerLogs": {
+      "eip155:11155111:0x4AA351E5f00eBe168E5C6f823f2940553d164991": {
+        "uri": "https://raw.githubusercontent.com/babyblueviper1/preaction-governance-conformance/main/examples/aid-commitment-log/log.json",
+        "declaredAt": 1792282956
+      }
+    },
+    "logEntries": {
+      "https://raw.githubusercontent.com/babyblueviper1/preaction-governance-conformance/main/examples/aid-commitment-log/log.json": [
+        {
+          "tag": "0xcfb5df3802cae51bb97a832b0a501a8197adcf69cfa337edd4db4850551bd503",
+          "content": "0x71b3cdabb45904d398ec19feef08df05fcfa431935f2dab682625cdb20c457d2",
+          "provenAt": 1792283781,
+          "anchor": "ots"
+        },
+        {
+          "tag": "0xcfb5df3802cae51bb97a832b0a501a8197adcf69cfa337edd4db4850551bd503",
+          "content": "0xbd10294901f18bb35f9fa22f2ccfad924b05ee7d20ae04069a620914349f239c",
+          "supersedes": "0x71b3cdabb45904d398ec19feef08df05fcfa431935f2dab682625cdb20c457d2",
+          "provenAt": 1792315510,
+          "anchor": "ots"
+        }
+      ]
+    }
+  },
+  "resolved": {
+    "onChainState": "ACTIVE",
+    "resolvedState": "ACTIVE",
+    "reasons": [],
+    "binding": {
+      "registry": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+      "agentId": 11039,
+      "boundAt": 1792084476
+    },
+    "lastSeen": 1792364640,
+    "livenessWindow": 7776000,
+    "authorityIntervals": [
+      {
+        "from": 1792084476,
+        "until": null,
+        "registry": "0x8004A818BFB912233c491871b3d84c89A494BD9e",
+        "agentId": 11039
+      }
+    ],
+    "document": {
+      "aid": "eip155:11155111:0xd6b24DF77E6f5e7BEFf51460a1d60C2fb7ac9eb2",
+      "binding": {
+        "agentId": 11039,
+        "registry": "0x8004A818BFB912233c491871b3d84c89A494BD9e"
+      },
+      "did": "did:aid:eip155:11155111:0xd6b24DF77E6f5e7BEFf51460a1d60C2fb7ac9eb2",
+      "facets": [
+        {
+          "access": {
+            "mode": "PUBLIC"
+          },
+          "digest": "0x1664b7e01137a0a2d9a47014cba5c546c27dd1fbe19af3b59cd492d5cb01a7d1",
+          "facetType": "aid:core/identity/v1",
+          "issuer": "eip155:11155111:0xd6b24DF77E6f5e7BEFf51460a1d60C2fb7ac9eb2",
+          "observedAt": 1792084476,
+          "provenance": "SELF",
+          "resolver": {
+            "agentId": 11039,
+            "chainId": 11155111,
+            "kind": "erc8004-identity",
+            "registry": "0x8004A818BFB912233c491871b3d84c89A494BD9e"
+          },
+          "validFrom": 1792084476,
+          "validUntil": 1823620476
+        },
+        {
+          "access": {
+            "mode": "PUBLIC"
+          },
+          "committedAt": {
+            "anchor": "ots",
+            "log": {
+              "position": 1,
+              "uri": "https://raw.githubusercontent.com/babyblueviper1/preaction-governance-conformance/main/examples/aid-commitment-log/log.json"
+            },
+            "proof": {
+              "blockHash": "00000000000000000001c269ca41f1dc46b4e8fe4193d95208f989137e6da48c",
+              "blockHeader": "00e017211ee6ed9c89e45def67d97a1005c3580b8200ef45b8f400000000000000000000df5c77fc6e9c764fa6872290fa5a986840c12f0a7190a48ad80165406d0158ce4e16d46a93000217a34d1997",
+              "ots": "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"
+            }
+          },
+          "digest": "0x71b3cdabb45904d398ec19feef08df05fcfa431935f2dab682625cdb20c457d2",
+          "digestAlg": "sha256",
+          "facetType": "aid:behavior/verification-verdict/v1",
+          "finality": "final",
+          "issuer": "eip155:11155111:0x4AA351E5f00eBe168E5C6f823f2940553d164991",
+          "observedAt": 1792282956,
+          "provenance": "ATTESTED",
+          "resolver": {
+            "kind": "uri"
+          },
+          "subjectWindow": {
+            "from": 1792196556,
+            "until": 1792311756
+          },
+          "uri": "https://raw.githubusercontent.com/babyblueviper1/preaction-governance-conformance/main/examples/aid-commitment-log/facet-1.json",
+          "validUntil": 1794874956
+        },
+        {
+          "access": {
+            "mode": "PUBLIC"
+          },
+          "committedAt": {
+            "anchor": "ots",
+            "log": {
+              "position": 2,
+              "uri": "https://raw.githubusercontent.com/babyblueviper1/preaction-governance-conformance/main/examples/aid-commitment-log/log.json"
+            },
+            "proof": {
+              "blockHash": "000000000000000000005252486ea5b0d78a245f83ffa0151359c1b72714c205",
+              "blockHeader": "000000200c6d4fafa26803b1a8f8755a7e6309d628608a825a25000000000000000000005ef3fe84ca3d8bcccdecaa6461cb140b6a473e46279fca152c37c42ff29ea152d895d46a93000217ec6053e1",
+              "ots": "AE9wZW5UaW1lc3RhbXBzAABQcm9vZgC/ieLohOiSlAEIvRApSQHxi7Nfn6IvLM+tkksF7n0grgQGmmIJFDSfI5z/8BASb6N/7EnJhyF6rK+zIGAoCPAgT4loy8TVjrxogsd6TrERJv5X62GeG+dbaoftKea4mMII8CB6GJlQLvJjAZqUJtdvrq/XkaIcOec0vBY2sC9lXnxBRAjwICqYHMDf7P3T/QAYMjzDavN3DaUd1K+PY+h5gDIKGRtCCPAgEGRBnYOuoKExcPh5c1vWuDpLXuuOQwzRgLHrHmv/0WsI8QRq1I098AhbjVMbF94E0wCD3+MNLvkMjikoaHR0cHM6Ly9maW5uZXkuY2FsZW5kYXIuZXRlcm5pdHl3YWxsLmNvbf/wCDx5hhHVtme8CPAQ3MmEClzjZMWsuMy7oQ/8JwjxIGBPk7x5/p4tMIFO9m31V7cSwHKBGcGxCaME4chc2xyOCPEgqmMbmFL3yPwFvEC+WrJcC4QHgZHGea9wx3pAmb7PlLAI8QRq1I078AjUZkZXdz9vOv8Ag9/jDS75DI4sK2h0dHBzOi8vYm9iLmJ0Yy5jYWxlbmRhci5vcGVudGltZXN0YW1wcy5vcmcI8SBHYV7rBhEGzlexhY4AC4DM8TWtQTyO6eKQGFAj0gXGIAjwIEiOBIqomK33DxEq1z7OCEEBqY+e4wBW+LSPBvMj70JPCPAgrzkVZN/fuuiHbU4mrYzCG4NA9eWUjnSA461VGHKLUhII8CAQu9rQRTfWE76HjI2Axt7zpHrNpyiyZy9CBDiG+oHscgjwIL7WipaxA1ud9pq+xYaxO/6/6br8SxL0OtMUl9kmPSurCPEgwMsNyo5FsBb8U2O0hdeABlkv78ONnJT2CHxI93Zf9XYI8CCIGWpOTDKNWDYoNJbx4m0NSpgmSbcY75c360/sdpgiNAjwIP77piocg+XJS49FnF5w9Fz4+pwrsuK6SuSO/Xee4NDPCPEgyI5A+PPWN+9d9copfVoUEKk+6Yi7GVBwKDHEcgkGW8EI8CDIEA6x7M5mgu1RPJcRApevsR9vAIGMkFMaCg9d1oPAvAjwIP85T+S+PdGI9C7Ux1GFCfRrIO0/Lza6QQ2qcF499jT9CPFZAQAAAAHaroFVkkeFUQNkAA6viSyWrDvrUzkP8MUe0sxD8FrYWAAAAAAA/v///wLARAEAAAAAABYAFDsUr52yktHnG2RvLPr1xDg2MkYMAAAAAAAAAAAiaiDwBMHUDgAICPAgvzApYyMR1oXQz9yampF4cKFJueKRzoqvwfbBxZy7mcsICPAgqd1ux6W5DeHV9ocJxvJ4ZiJ9KvDodimO655QQ2jYvzgICPEgtnqqqa5G7SX/iCrbO+5DNhN+KZP5aNpIkKO+M8rHwqYICPEgaynxJawDr/Opj6rH7kwYFHU0ku1noLYK2sM0nrNPXYsICPEgO2Tc1T7bfG3157IOyaEtsMPF+X8T2ujOyJ2PNxQsjLgICPEgXapyHzLkE9GznYN67WIxfpiT6w084zskOLhRVZt1Gi4ICPAgqdpwos2zoCRRicexTF6HDJ6P6oGBtdYf2fazVsMsgeMICPEgWwSDR42DSPYnTBbF+OUJ6QSUgjnue7OaKB8Q94h28xwICPEg/gX8p/IyK1vDG5gcs0Q0dZvGs9GOMbXm8zibTHoYifUICPAgn1SaBEMdMuHAo9uGqccGoRzd5OMDY6Rym1FdHJJHoIAICPAgkvG2ruWpSjYTW6qlU3D2I8kQQbqIy2opjMYgpS4wn2IICPAggmUQpLpBwhYPweg9EzAJysBQPfVG2b3FZhYcUIkvoq8ICPAga2+pfISL5yjMhiAHEHPpL+yKQ+KNrYDeWDCVay+CHnsICAAFiJYNc9cZAQPCqTv/8AiZod3QBo7t1AjxID3RSPRGG6lnIszEb8U2eu37/qyqz0Nm2SGbzqOgDSumCPAQA3NK9C8HMc25S7bMLIviZgjxILlduDdPT9rlMNYlwUrs4nOhV+jDhaBkzTNM6mha7ue8CPAg7CI4WZMl+KwdBFFmzKR1b3Ch3aTENnG0Ip4DxtrxSw8I8SCrocNhdVTFBoD1TsUGAwkanpUSmPCKEYZaYhZkOhHHrQjwIKrn1uKuJ6n4EyYDUZ2EFmvZfJ7r1Xp0FsyOEHwBMw29CPEEatSNO/AIQDu5CfYFAgP/AIPf4w0u+QyOLi1odHRwczovL2FsaWNlLmJ0Yy5jYWxlbmRhci5vcGVudGltZXN0YW1wcy5vcmcI8CAb92LbHauW+XD7n/XZUBFuKwqP87qjNt6g4fjJQbLQKAjxIOQ9gphd0t9epsnITIeulQa/V+sD+i5iEcraimFHqTb2CPAgVn/9MqWvAmcw4EyAhZ9d/b9qFZdmehe10taFBVYceLkI8SClsuKq09SNp4xGuusdih0smoxNTqb7Otbu3YHW9XbkWQjwIG1I6myJdWbh0VQzT31uOlVY/hWYvoOGWBiPkEz4xUdcCPEgxqj4eZSxdqu+g8DgLlfWNBtCBte1pLPjTDzfc2rVoKoI8CC/Bvf3Hw4uYOuDITrzKr2hSuHpMfnk2G1qtfhpjnclCQjxIEb4gELhiZkrF+6YujjpNzmmoxWicmIpTtcm4WIJl9W/CPAgXVIE9uYld+dMkyXb6fnDGfE+vqLhzbbdQwnKkSoL/d8I8CBP0WdAbrY3lTi68lZqyYJNBXZeuJL/wtkz/XoTGbXdPAjxWQEAAAABQWChgxZPcMKZMUUtXmt2hqRF6h4XHk5ZHKU2nCQz/30AAAAAAP7///8C8gkCAAAAAAAWABTM/HrpwWQNTcrVBiL+A+9IF/q1WQAAAAAAAAAAImog8AS+1A4ACAjxINyvyT28nXISR/Uv2lFIVBXEjtKwZJ2ey+SGL2AY0E4eCAjwID0O/P6BIjkZgeNIYKohyQF9YkDs2Ula3hAFnG5kANZ8CAjwIB6v5GJEHGzyMZAG39Ll0jiJElKOWnN9rbRzoF3hy0crCAjxIMxkgrcL2UPSTruSZVarAHXFnfTvhQnMyVyFjSNnfi8ECAjxINPNNUJtvzT8+BLLqXR0hCJYZo87PterdUj0DZHvZ1HBCAjxIB9Djpb9LGWX9R7UlIU0PLm0Yu0ckRQnx9sqyjxcnz+BCAjxIND7R3tANOxnP1THflkmIZg43xLNqj/lNtzic79ITYXMCAjxIHN4shbjtg7IxiZXn5ZxAwezOsn+8CDID2fsrK4cfflbCAjxIO5Tai8+A7pMrB5ZADaiIcjHDqSGub63kyvYfRRvZ7RkCAjwIIQTnj1N1M2ZV7kkOooYb7sZf6kRFes9FmCrEUP6+G7TCAjwIJEIhN3g+Z+DJYR47JxXY59CgjvH9OYCjVCl0dZ2dF9eCAjxIN+BAVoe5Lvd0PT5gtZyiI3KIArDXo4/DxWWLNzf+9U4CAjwIIbRQjXY5ZFbr3l0aGyra9HkvqYNn3wvLGMq9Q75EFuBCAgABYiWDXPXGQEDv6k78BC93kJb/xkL3t4HSoXDnfgYCPEgnTVnySFi0YOIEwcQtkffZraZYNDCK9Ye/Hen9TRqTZQI8CD8lIFM6l91XIcJE3ipixGg/pi5OU0XAxBjYpwYMdvKPgjwILmlAWebj0ZyQwjAyOskvKUGYSdRF7Eu7gIV+ZLWHmg6CPEEatSNPvAIHPuG4f5UXDYAg9/jDS75DI4jImh0dHBzOi8vYnRjLmNhbGVuZGFyLmNhdGFsbGF4eS5jb20="
+            }
+          },
+          "digest": "0xbd10294901f18bb35f9fa22f2ccfad924b05ee7d20ae04069a620914349f239c",
+          "digestAlg": "sha256",
+          "facetType": "aid:behavior/verification-verdict/v1",
+          "finality": "final",
+          "issuer": "eip155:11155111:0x4AA351E5f00eBe168E5C6f823f2940553d164991",
+          "observedAt": 1792314682,
+          "provenance": "ATTESTED",
+          "resolver": {
+            "kind": "uri"
+          },
+          "subjectWindow": {
+            "from": 1792196556,
+            "until": 1792311756
+          },
+          "supersedes": "0x71b3cdabb45904d398ec19feef08df05fcfa431935f2dab682625cdb20c457d2",
+          "uri": "https://raw.githubusercontent.com/babyblueviper1/preaction-governance-conformance/main/examples/aid-commitment-log/facet-2.json",
+          "validUntil": 1794874956
+        }
+      ],
+      "livenessWindow": 7776000,
+      "updatedAt": 1792400000,
+      "version": "aid-document/v1"
+    },
+    "alsoKnownAs": [],
+    "facets": {
+      "current": [
+        {
+          "access": {
+            "mode": "PUBLIC"
+          },
+          "digest": "0x1664b7e01137a0a2d9a47014cba5c546c27dd1fbe19af3b59cd492d5cb01a7d1",
+          "facetType": "aid:core/identity/v1",
+          "issuer": "eip155:11155111:0xd6b24DF77E6f5e7BEFf51460a1d60C2fb7ac9eb2",
+          "observedAt": 1792084476,
+          "provenance": "SELF",
+          "resolver": {
+            "agentId": 11039,
+            "chainId": 11155111,
+            "kind": "erc8004-identity",
+            "registry": "0x8004A818BFB912233c491871b3d84c89A494BD9e"
+          },
+          "validFrom": 1792084476,
+          "validUntil": 1823620476,
+          "verified": false,
+          "finality": "final",
+          "attribution": "in-interval",
+          "timing": "none"
+        },
+        {
+          "access": {
+            "mode": "PUBLIC"
+          },
+          "committedAt": {
+            "anchor": "ots",
+            "log": {
+              "position": 2,
+              "uri": "https://raw.githubusercontent.com/babyblueviper1/preaction-governance-conformance/main/examples/aid-commitment-log/log.json"
+            },
+            "proof": {
+              "blockHash": "000000000000000000005252486ea5b0d78a245f83ffa0151359c1b72714c205",
+              "blockHeader": "000000200c6d4fafa26803b1a8f8755a7e6309d628608a825a25000000000000000000005ef3fe84ca3d8bcccdecaa6461cb140b6a473e46279fca152c37c42ff29ea152d895d46a93000217ec6053e1",
+              "ots": "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"
+            }
+          },
+          "digest": "0xbd10294901f18bb35f9fa22f2ccfad924b05ee7d20ae04069a620914349f239c",
+          "digestAlg": "sha256",
+          "facetType": "aid:behavior/verification-verdict/v1",
+          "finality": "final",
+          "issuer": "eip155:11155111:0x4AA351E5f00eBe168E5C6f823f2940553d164991",
+          "observedAt": 1792314682,
+          "provenance": "ATTESTED",
+          "resolver": {
+            "kind": "uri"
+          },
+          "subjectWindow": {
+            "from": 1792196556,
+            "until": 1792311756
+          },
+          "supersedes": "0x71b3cdabb45904d398ec19feef08df05fcfa431935f2dab682625cdb20c457d2",
+          "uri": "https://raw.githubusercontent.com/babyblueviper1/preaction-governance-conformance/main/examples/aid-commitment-log/facet-2.json",
+          "validUntil": 1794874956,
+          "attribution": "in-interval",
+          "timing": "integrity-only",
+          "timingReason": "committed after subjectWindow.until",
+          "committedAtVerified": 1792316888,
+          "anchorTolerance": 7200
+        }
+      ],
+      "history": [
+        {
+          "access": {
+            "mode": "PUBLIC"
+          },
+          "committedAt": {
+            "anchor": "ots",
+            "log": {
+              "position": 1,
+              "uri": "https://raw.githubusercontent.com/babyblueviper1/preaction-governance-conformance/main/examples/aid-commitment-log/log.json"
+            },
+            "proof": {
+              "blockHash": "00000000000000000001c269ca41f1dc46b4e8fe4193d95208f989137e6da48c",
+              "blockHeader": "00e017211ee6ed9c89e45def67d97a1005c3580b8200ef45b8f400000000000000000000df5c77fc6e9c764fa6872290fa5a986840c12f0a7190a48ad80165406d0158ce4e16d46a93000217a34d1997",
+              "ots": "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"
+            }
+          },
+          "digest": "0x71b3cdabb45904d398ec19feef08df05fcfa431935f2dab682625cdb20c457d2",
+          "digestAlg": "sha256",
+          "facetType": "aid:behavior/verification-verdict/v1",
+          "finality": "final",
+          "issuer": "eip155:11155111:0x4AA351E5f00eBe168E5C6f823f2940553d164991",
+          "observedAt": 1792282956,
+          "provenance": "ATTESTED",
+          "resolver": {
+            "kind": "uri"
+          },
+          "subjectWindow": {
+            "from": 1792196556,
+            "until": 1792311756
+          },
+          "uri": "https://raw.githubusercontent.com/babyblueviper1/preaction-governance-conformance/main/examples/aid-commitment-log/facet-1.json",
+          "validUntil": 1794874956,
+          "timing": "pre-outcome",
+          "committedAtVerified": 1792284238,
+          "anchorTolerance": 7200,
+          "supersededBy": "0xbd10294901f18bb35f9fa22f2ccfad924b05ee7d20ae04069a620914349f239c",
+          "reason": "superseded",
+          "supersessionTiming": "not-before-outcome",
+          "supersededAtProven": 1792316888,
+          "reversedAfterOutcome": true
+        }
+      ],
+      "invalid": [],
+      "unattributable": []
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "network": "sepolia",
+  "chainId": 11155111,
+  "contracts": {
+    "AIDRegistry": {
+      "address": "0x01C05738eebD20DC80bBb9Fa1Ceb1165af8dA00F",
+      "block": 11921818
+    }
+  },
+  "workedExample": {
+    "anchors": {
+      "B": "0xd6b24DF77E6f5e7BEFf51460a1d60C2fb7ac9eb2",
+      "issuer": "0x4AA351E5f00eBe168E5C6f823f2940553d164991"
+    },
+    "pinnedBlock": 11944211,
+    "pinnedBlockTimestamp": 1792364640,
+    "issuerLogs": {
+      "eip155:11155111:0x4AA351E5f00eBe168E5C6f823f2940553d164991": {
+        "uri": "https://raw.githubusercontent.com/babyblueviper1/preaction-governance-conformance/main/examples/aid-commitment-log/log.json",
+        "declaredAt": 1792282956
+      }
+    },
+    "logEntries": {
+      "https://raw.githubusercontent.com/babyblueviper1/preaction-governance-conformance/main/examples/aid-commitment-log/log.json": [
+        {
+          "tag": "0xcfb5df3802cae51bb97a832b0a501a8197adcf69cfa337edd4db4850551bd503",
+          "content": "0x71b3cdabb45904d398ec19feef08df05fcfa431935f2dab682625cdb20c457d2",
+          "provenAt": 1792283781,
+          "anchor": "ots"
+        },
+        {
+          "tag": "0xcfb5df3802cae51bb97a832b0a501a8197adcf69cfa337edd4db4850551bd503",
+          "content": "0xbd10294901f18bb35f9fa22f2ccfad924b05ee7d20ae04069a620914349f239c",
+          "supersedes": "0x71b3cdabb45904d398ec19feef08df05fcfa431935f2dab682625cdb20c457d2",
+          "provenAt": 1792315510,
+          "anchor": "ots"
+        }
+      ]
+    }
+  },
+  "ctx": [
+    "issuerLogs",
+    "logEntries"
+  ],
+  "verifiers": [
+    "ots"
+  ]
+}

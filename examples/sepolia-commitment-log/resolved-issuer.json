@@ -1,0 +1,55 @@
+{
+  "snapshot": {
+    "aid": "eip155:11155111:0x4AA351E5f00eBe168E5C6f823f2940553d164991",
+    "state": 0,
+    "binding": null,
+    "lastSeen": 1792283028,
+    "livenessWindow": 7776000,
+    "successor": null,
+    "documentDigest": "0x61a6051f1c1a105435fb4b8c8179e75c2b96a7ae4a7d0e238663c5ed7596006b",
+    "document": null,
+    "onChainFacets": {},
+    "registrationFile": null,
+    "authorityIntervals": [],
+    "issuerLogs": {
+      "eip155:11155111:0x4AA351E5f00eBe168E5C6f823f2940553d164991": {
+        "uri": "https://raw.githubusercontent.com/babyblueviper1/preaction-governance-conformance/main/examples/aid-commitment-log/log.json",
+        "declaredAt": 1792282956
+      }
+    },
+    "logEntries": {
+      "https://raw.githubusercontent.com/babyblueviper1/preaction-governance-conformance/main/examples/aid-commitment-log/log.json": [
+        {
+          "tag": "0xcfb5df3802cae51bb97a832b0a501a8197adcf69cfa337edd4db4850551bd503",
+          "content": "0x71b3cdabb45904d398ec19feef08df05fcfa431935f2dab682625cdb20c457d2",
+          "provenAt": 1792283781,
+          "anchor": "ots"
+        },
+        {
+          "tag": "0xcfb5df3802cae51bb97a832b0a501a8197adcf69cfa337edd4db4850551bd503",
+          "content": "0xbd10294901f18bb35f9fa22f2ccfad924b05ee7d20ae04069a620914349f239c",
+          "supersedes": "0x71b3cdabb45904d398ec19feef08df05fcfa431935f2dab682625cdb20c457d2",
+          "provenAt": 1792315510,
+          "anchor": "ots"
+        }
+      ]
+    }
+  },
+  "resolved": {
+    "onChainState": "DORMANT",
+    "resolvedState": "DORMANT",
+    "reasons": [],
+    "binding": null,
+    "lastSeen": 1792283028,
+    "livenessWindow": 7776000,
+    "authorityIntervals": [],
+    "document": null,
+    "alsoKnownAs": [],
+    "facets": {
+      "current": [],
+      "history": [],
+      "invalid": [],
+      "unattributable": []
+    }
+  }
+}
