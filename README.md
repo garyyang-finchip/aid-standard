@@ -34,6 +34,7 @@ deployments/sepolia.json              addresses, constructor args, Sourcify matc
 deployments/sepolia/                  recorded JSON-RPC responses (pinned block), resolver outputs, decoded AID Documents
 scripts/sepolia-replay.js             re-runs the reference resolver offline against the recorded responses (or live with --live; --manifest <bundle> for contributed bundles)
 examples/                             contributed recorded cases (data only): a manifest of the deployments/sepolia.json shape, rpc-replay.json, resolved-*.json, README
+  sepolia-commitment-log/             a third-party issuer's OTS-anchored commitment log against anchor B with a late supersession, pinned at block 11944211 (aid-standard#4)
 tools/aid-resolve/verifiers/ots.js    optional OpenTimestamps verifier plug-in (contributed; not part of the ERC assets)
 ```
 
@@ -66,7 +67,7 @@ node scripts/sepolia-replay.js                               # offline: replays 
 node scripts/sepolia-replay.js --live https://ethereum-sepolia-rpc.publicnode.com
 ```
 
-Details in [docs/sepolia-worked-example.md](docs/sepolia-worked-example.md).
+Details in [docs/sepolia-worked-example.md](docs/sepolia-worked-example.md). A third-party commitment log recorded against anchor B, exercising the supersession-timing rule, is replayed with `node scripts/sepolia-replay.js --manifest examples/sepolia-commitment-log/manifest.json` (aid-standard#4).
 
 ## Design summary
 
@@ -96,6 +97,7 @@ Details in [docs/sepolia-worked-example.md](docs/sepolia-worked-example.md).
 
 - `tools/aid-resolve/verifiers/ots.js` and the OpenTimestamps timing fixture: @babyblueviper1 (aid-standard#1)
 - Supersession-timing resolver logic and fixture: @babyblueviper1 (aid-standard#2)
+- `examples/sepolia-commitment-log/` (recorded replay of a third-party commitment log with a late supersession) and the `ots-timing-check` fixes that hand the issuer log to the resolver and mutate the Bitcoin-attested path: @babyblueviper1 (aid-standard#4)
 
 Design contributions from the Ethereum Magicians review are acknowledged in the ERC text (Rationale).
 
