@@ -330,6 +330,33 @@ async function main() {
     eq(validate(open), true); eq(validate({ ...fin, finalizeBy: 1791500000 }), false); eq(validate({ ...open, finality: undefined }), false);
   });
 
+  await t("oracle dispute (real market): provisional open during the vote, overdue after the round, superseded by the final facet", async () => {
+    const { resolveSnapshot } = require("../tools/aid-resolve/resolve");
+    const { canonicalize } = require("../tools/jcs");
+    const load = (n) => JSON.parse(fs.readFileSync(path.join(__dirname, "..", "assets", "erc-aid", "vectors", "fixtures", n)));
+    const run = (fx) => resolveSnapshot(fx, fx.now, { trustedTimestamps: fx.trustedTimestamps, issuerLogs: fx.issuerLogs, logEntries: fx.logEntries });
+    const pick = (f, want) => Object.fromEntries(Object.keys(want).map((k) => [k, f[k]]));
+    const Ajv = require("ajv/dist/2020"); const validate = new Ajv({ strict: false }).compile(JSON.parse(fs.readFileSync(path.join(__dirname, "..", "assets", "erc-aid", "schemas", "facet.schema.json"))));
+    for (const n of ["oracle-dispute-open.json", "oracle-dispute-overdue.json", "oracle-dispute-final.json"]) {
+      const fx = load(n);
+      // every facet digest is keccak256(JCS(content)) over the public chain facts carried in the fixture; envelopes validate
+      for (const f of fx.document.facets) { eq(ethers.keccak256(ethers.toUtf8Bytes(canonicalize(fx.content[f.digest]))), f.digest, n + " content digest"); eq(validate(f), true, n + " envelope"); }
+      const r = await run(fx);
+      for (const k of ["current", "history"]) {
+        eq(r.facets[k].length, fx.expect[k].length, `${n} ${k} count`);
+        fx.expect[k].forEach((w, i) => eq(JSON.stringify(pick(r.facets[k][i], w)), JSON.stringify(w), `${n} ${k}[${i}]`));
+      }
+      if (r.facets.history.some((f) => f.reversedAfterOutcome)) throw new Error(n + ": a provisional facet replaced after the outcome must not be flagged");
+    }
+    // the subject presents only the provisional facet after the outcome: the issuer log still shows the final one, so P is history, never overdue
+    const fx = load("oracle-dispute-final.json");
+    fx.document = { ...fx.document, facets: fx.document.facets.filter((f) => f.finality === "provisional") };
+    fx.documentDigest = ethers.keccak256(ethers.toUtf8Bytes(canonicalize(fx.document)));
+    const r = await run(fx);
+    eq(r.facets.current.length, 0); eq(r.facets.history.length, 1); eq(r.facets.history[0].reason, "superseded in issuer log");
+    eq(r.facets.history[0].finalization, undefined); eq(r.facets.history[0].supersessionTiming, "not-before-outcome");
+  });
+
   await t("alsoKnownAs: mutual link confirmed; one-sided link unconfirmed; unavailable Document unchecked", async () => {
     const { resolveSnapshot } = require("../tools/aid-resolve/resolve");
     const fx = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "assets", "erc-aid", "vectors", "fixtures", "also-known-as.json")));
