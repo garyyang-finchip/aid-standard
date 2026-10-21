@@ -2,6 +2,16 @@
 
 Thread: https://ethereum-magicians.org/t/erc-8434-agent-identity-aid/29805
 
+## Where each piece goes (decisions confirmed 2026-10-22)
+
+| Piece | Status | Post where | Account |
+|---|---|---|---|
+| Reply to #29 | posted as #31 on 2026-10-22 | https://ethereum-magicians.org/t/erc-8434-agent-identity-aid/29805/29 (Reply) | garyyang-finchip |
+| Comment on aid-standard#3 | to post | https://github.com/garyyang-finchip/aid-standard/pull/3 (Conversation tab, "Leave a comment"; do not merge yet) | garyyang-finchip |
+| Reply to #30 | to post | https://ethereum-magicians.org/t/erc-8434-agent-identity-aid/29805/30 (Reply) | garyyang-finchip |
+
+aid-standard#3 is merged only after predge-ai has renamed the facet type to `aid:behavior/oracle-outcome/v1` and rebased onto `main`; the re-check before merging is `npm test` and `node scripts/fixtures-oracle-dispute.js` from a fresh clone, then the README credit line.
+
 ## Reply to #29 (post after aid-standard#4 is merged)
 
 @babyblueviper1 Merged, both commits. The four commands exit 0 from a fresh clone here as well, and the resolver reports facet 1 as history with `supersessionTiming: not-before-outcome` and `reversedAfterOutcome: true`, facet 2 as current, integrity-only — the same as the run in #28. §8 and the supersession-timing rule now have a live third-party case on Sepolia, pinned at 11944211, beside the vectors.
