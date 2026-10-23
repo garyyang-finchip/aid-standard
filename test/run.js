@@ -356,6 +356,32 @@ async function main() {
     eq(validate({ ...base, digest: ethers.keccak256(bytes), digestAlg: "blake3" }), false);
   });
 
+  await t("reconstructability: a wallet change without MetadataSet makes the agent's intervals unreconstructable; agentId-keyed evidence not attributable", async () => {
+    const { reconstructIntervals, snapshotFromChain, resolveSnapshot } = require("../tools/aid-resolve/resolve");
+    const idNext = Number(await Id.nextId());
+    await (await I(owner).register()).wait(); const agent = idNext;
+    await (await I(owner).setAgentWallet(agent, stranger.address)).wait();
+    await (await R(stranger).bind(idr, agent)).wait();
+    eq(Number(await Reg.state(stranger.address)), 1, "ACTIVE after bind");
+    const regEv = new ethers.Contract(reg, ["event Bound(address indexed anchor, address indexed registry, uint256 indexed agentId)", "event Unbound(address indexed anchor, address indexed registry, uint256 indexed agentId)"], ethers.provider);
+    const ivOk = await reconstructIntervals(ethers.provider, regEv, stranger.address, 0);
+    eq(ivOk.length, 1, "one open interval while the history explains the live relation"); eq(ivOk.unreconstructable, undefined);
+    await (await I(owner).setAgentWalletSilently(agent, relayer.address)).wait();   // the registry moved the wallet with no event
+    eq(Number(await Reg.state(stranger.address)), 2, "STALE on chain: the predicate no longer holds");
+    const iv = await reconstructIntervals(ethers.provider, regEv, stranger.address, 0);
+    eq(iv.length, 0, "no interval is trusted"); eq(iv.unreconstructable.length, 1); eq(iv.unreconstructable[0].agentId, agent);
+    const snap = await snapshotFromChain(ethers.provider, reg, stranger.address, null);
+    const n = await now();
+    snap.document = { version: "aid-document/v1", aid: `eip155:31337:${stranger.address}`, facets: [
+      { facetType: "aid:review/erc8004/v1", provenance: "ATTESTED", issuer: `eip155:31337:${owner.address}`, validUntil: n + 10 ** 6, observedAt: n - 5, digest: ethers.ZeroHash, access: { mode: "PUBLIC" }, resolver: { kind: "erc8004-reputation", chainId: 31337, registry: idr, agentId: agent, tag1: "*" } },
+      { facetType: "aid:skills/erc8338/v1", provenance: "OBSERVED", issuer: `eip155:31337:${stranger.address}`, validUntil: n + 10 ** 6, observedAt: n - 5, digest: ethers.ZeroHash, access: { mode: "PUBLIC" }, resolver: { kind: "erc8338", chainId: 31337 } } ] };
+    snap.documentDigest = ethers.keccak256(ethers.toUtf8Bytes(require("../tools/jcs").canonicalize(snap.document)));
+    const r = await resolveSnapshot(snap, n, { provider: ethers.provider });
+    if (!r.reasons.some((x) => /not reconstructable/.test(x))) throw new Error("reason missing: " + JSON.stringify(r.reasons));
+    eq(r.facets.unattributable.length, 1); eq(r.facets.unattributable[0].reason, "authority intervals not reconstructable");
+    eq(r.facets.current.length, 1); eq(r.facets.current[0].facetType, "aid:skills/erc8338/v1");   // address-keyed evidence stays
+  });
+
   console.log(`\n${passed} passed, ${failed} failed`);
   if (failed) process.exit(1);
 }

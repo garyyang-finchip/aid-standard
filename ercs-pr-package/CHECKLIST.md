@@ -94,3 +94,9 @@ Commit message: `Add ERC: Agent Identity (AID)`.
 - [ ] On branch `add-erc-aid` (PR #2044): replace `ERCS/erc-8434.md`, `assets/erc-8434/schemas/facet.schema.json`, `assets/erc-8434/tools/aid-resolve/resolve.js`. Commit: `ERC-8434: digestAlg on the facet envelope (content hash made explicit)`. Paste PR-COMMENT-r2.9.md as a comment; do not upload it. Do not click "Update branch".
 - [ ] aid-standard: overlay the R2.9 delta (ERC source + filing variant, schema, resolver, test, deployments record and `aid-document-B.json`/`.v2.json`, docs/sepolia-worked-example.md, docs/magicians-replies-2026-10-19.md, this checklist, PR-COMMENT-r2.9.md).
 - [ ] Post the reply to #27 from docs/magicians-replies-2026-10-19.md after the PR commit is green.
+
+## 12. R2.10: registry wallet-event requirement, extension namespace, review-facet scope (2026-10-23)
+
+- [ ] On branch `add-erc-aid` (PR #2044): replace `ERCS/erc-8434.md`, `assets/erc-8434/tools/aid-resolve/resolve.js`, `assets/erc-8434/contracts/mocks/MockIdentityRegistry8004.sol`. Commit: `ERC-8434: registry wallet-event requirement, aid:x extension namespace, review-facet scope (review round 6)`. Paste PR-COMMENT-r2.10.md as a comment; do not upload it. Do not click "Update branch". If eip-review-bot renames the PR to "Website: …" again, look for a file outside `ERCS/erc-8434.md` and `assets/erc-8434/` on the branch.
+- [ ] aid-standard: overlay the R2.10 delta (ERC source + filing variant, resolver, mock, test, README, this checklist, PR-COMMENT-r2.10.md, docs/magicians-replies-2026-10-23.md). Note: the delta was built on `main` after aid-standard#4; `scripts/ots-timing-check.js` and `examples/` are those of #4 and are not in the delta.
+- [ ] Thread: post the reply to #33 from docs/magicians-replies-2026-10-23.md (the AID paragraph for the ERC-8004 request).
